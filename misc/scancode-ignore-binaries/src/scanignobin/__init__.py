@@ -81,7 +81,7 @@ def is_binary(location):
     return (
         t.is_binary 
         or t.is_archive 
-        or t.is_media 
+        or (t.is_media and not is_allowed_media(t))
         or t.is_office_doc
         or t.is_compressed
         or t.is_filesystem
@@ -90,3 +90,7 @@ def is_binary(location):
         or t.is_java_class
         or t.is_data
     )
+
+
+def is_allowed_media(t):
+    return t.mimetype_file == "image/svg+xml"
