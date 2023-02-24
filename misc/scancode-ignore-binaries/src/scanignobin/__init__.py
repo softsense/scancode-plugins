@@ -89,6 +89,8 @@ def is_binary(location):
         or t.is_elf
         or t.is_java_class
         or t.is_data
+        or t.is_pdf
+        or t.is_pdf_with_text
     )
 
 
